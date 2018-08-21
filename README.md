@@ -1,5 +1,5 @@
 # nextjs-apollo-oauth-prisma
-App build with Next.js, Apollo GraphQL and Prisma
+App build with Next.js, Apollo GraphQL and Prisma!
 
 # Development
 Install dependencies
