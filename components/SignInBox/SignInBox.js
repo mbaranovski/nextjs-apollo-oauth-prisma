@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SignInBox = ({type}) => {
-
     const data = {
         github: {
             icon: 'https://unpkg.com/simple-icons@latest/icons/github.svg',
