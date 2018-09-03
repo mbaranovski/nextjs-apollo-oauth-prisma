@@ -17,7 +17,7 @@ const SignInBox = ({type}) => {
                 <img width={21} className={'signinbox-icon'} src={data.icon}/>
                 {data.title}
 
-
+                { /*language=CSS*/ }
                 <style jsx>{`
      .signinbox-container {
          width: 400px;

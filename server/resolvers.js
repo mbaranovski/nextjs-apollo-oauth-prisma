@@ -34,11 +34,11 @@ module.exports = {
             Mutation: {
                 authenticate: async (parent, {githubCode}, ctx, info) => {
                     const token = await getGithubToken(githubCode);
-                    const user = await getGithubUser(token);
+                    const {id, name, email} = await getGithubUser(token);
+                   /// console.log('MICHAL: ', user)
 
                     return {
-                        token: generateJWT({useruuid: user.id}),
-                        user
+                        token: generateJWT({useruuid: id, name, email})
                     }
                 }
             },

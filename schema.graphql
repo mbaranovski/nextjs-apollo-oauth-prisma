@@ -13,6 +13,5 @@ type Mutation {
 }
 
 type AuthenticateUserPayload {
-  user: User!
   token: String!
 }
