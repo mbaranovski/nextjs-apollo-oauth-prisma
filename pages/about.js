@@ -1,7 +1,6 @@
+import React from "react";
+import withAuthentication from "../lib/withAuthentication";
 
-import React from 'react';
-import withAuthentication from '../lib/withAuthentication';
+const About = () => <div>siemanko</div>;
 
-const About = () => (<div>siemanko</div>)
-
-export default About
+export default About;

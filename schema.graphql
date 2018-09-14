@@ -1,15 +1,11 @@
-# import User, Note from 'generated/prisma.graphql'
+# import User, oAuthMethod from 'generated/prisma.graphql'
 
 type Query {
   me: User,
-  note(id: ID!): Note
 }
 
 type Mutation {
-  createNote(text: String!): Note!
-  updateNote(id: ID!, text: String!): Note
-  deleteNote(id: ID!): Note
-  authenticate(githubCode: String!): AuthenticateUserPayload
+  authenticate(oAuthCode: String!, oAuthMethod: oAuthMethod!): AuthenticateUserPayload
 }
 
 type AuthenticateUserPayload {

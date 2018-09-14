@@ -1,9 +1,9 @@
-import React from 'react';
-import {NavHeader} from '../components/NavHeader/NavHeader';
+import React from "react";
+import { NavHeader } from "../components/NavHeader/NavHeader";
 
-export const MainLayout = ({children, ...rest}) => (
-    <div>
-        <NavHeader {...rest} />
-        {children}
-    </div>
-)
+export const MainLayout = ({ children, ...rest }) => (
+  <div>
+    <NavHeader {...rest} />
+    {children}
+  </div>
+);
