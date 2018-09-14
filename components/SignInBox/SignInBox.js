@@ -8,6 +8,13 @@ const SignInBox = ({ type }) => {
       borderColor: "rgba(0,0,0,0.2)",
       link:
         "https://github.com/login/oauth/authorize?client_id=09aa7daf4705c794c443"
+    },
+    facebook: {
+      icon: "https://unpkg.com/simple-icons@latest/icons/github.svg",
+      title: "Sign in with Facebook",
+      borderColor: "rgba(0,0,0,0.2)",
+      link:
+        "https://www.facebook.com/v3.1/dialog/oauth?client_id=234464140579336&redirect_uri=https://localhost:4000/callback?method=Facebook&response_type=code&scope=email"
     }
   }[type];
 
@@ -34,6 +41,11 @@ const SignInBox = ({ type }) => {
           }
 
           .github {
+            color: #fff;
+            background-color: #444;
+            border-color: ${data.borderColor};
+          }
+          .facebook {
             color: #fff;
             background-color: #444;
             border-color: ${data.borderColor};

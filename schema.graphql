@@ -1,4 +1,13 @@
-# import User, oAuthMethod from 'generated/prisma.graphql'
+# import User from 'generated/prisma.graphql'
+
+enum oAuthMethod {
+  Github
+  Facebook
+}
+
+type AuthenticateUserPayload {
+  token: String!
+}
 
 type Query {
   me: User,
@@ -6,8 +15,4 @@ type Query {
 
 type Mutation {
   authenticate(oAuthCode: String!, oAuthMethod: oAuthMethod!): AuthenticateUserPayload
-}
-
-type AuthenticateUserPayload {
-  token: String!
 }

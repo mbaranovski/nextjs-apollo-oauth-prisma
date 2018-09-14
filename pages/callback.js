@@ -17,8 +17,7 @@ class CallbackAuth extends React.Component {
   static async getInitialProps({ req, res, apolloClient }) {
     const { code, method } = req.query;
     if (!process.browser && code) {
-      try {
-        console.log("MICHAL: ", method);
+   //   try {
         const { data } = await apolloClient.mutate({
           mutation: AUTHENTICATE,
           variables: { oAuthCode: code, oAuthMethod: method }
@@ -28,10 +27,10 @@ class CallbackAuth extends React.Component {
           setCookies(data.authenticate.token, res);
           redirect({ res }, "/");
         }
-      } catch (e) {
-        console.log("MICHAL: eeee", e);
-        return { error: e.message ? e.message : e };
-      }
+     // } catch (e) {
+        console.log("Callback.js: ", e);
+        return { };
+     // }
     }
 
     return {};

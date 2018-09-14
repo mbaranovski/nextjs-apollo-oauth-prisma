@@ -7,6 +7,7 @@ export default class Signin extends React.Component {
     return (
       <React.Fragment>
         <SignInBox type={"github"} />
+        <SignInBox type={"facebook"} />
       </React.Fragment>
     );
   }

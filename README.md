@@ -6,14 +6,15 @@ Install dependencies
 ```bash
 npm install
 ```
-Generate Prisma Datamodel
-```bash
-prisma deploy
-```
 
 Run prisma services
 ```bash
 npm run start:prisma
+```
+
+Generate Prisma Datamodel
+```bash
+prisma deploy
 ```
 
 Run Next.js and GraphQL Backend Server

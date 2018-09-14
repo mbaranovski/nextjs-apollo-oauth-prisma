@@ -10,7 +10,6 @@ export class NavHeader extends React.Component {
 
   render() {
     const { client, user } = this.props;
-    console.log("MICHAL: ", user);
     return (
       <header className={"nav-header"}>
         <nav>{user.name}, </nav>

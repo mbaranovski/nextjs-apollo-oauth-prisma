@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Fri Sep 14 2018 09:55:33 GMT+0100 (GMT+01:00)
+# timestamp: Fri Sep 14 2018 15:23:48 GMT+0100 (GMT+01:00)
 
 type AggregateCategory {
   count: Int!
@@ -271,11 +271,6 @@ enum MutationType {
 interface Node {
   """The id of the object."""
   id: ID!
-}
-
-enum oAuthMethod {
-  Github
-  Facebook
 }
 
 """Information about pagination in a connection."""
@@ -610,7 +605,7 @@ type Query {
 
 enum Roles {
   Admin
-  Client
+  Customer
 }
 
 type Subscription {
@@ -623,7 +618,6 @@ type User implements Node {
   id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
-  oAuth: oAuthMethod!
   oAuthID: ID!
   role: Roles!
   name: String!
@@ -641,7 +635,6 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  oAuth: oAuthMethod!
   oAuthID: ID!
   role: Roles!
   name: String!
@@ -664,8 +657,6 @@ enum UserOrderByInput {
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
-  oAuth_ASC
-  oAuth_DESC
   oAuthID_ASC
   oAuthID_DESC
   role_ASC
@@ -680,7 +671,6 @@ type UserPreviousValues {
   id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
-  oAuth: oAuthMethod!
   oAuthID: ID!
   role: Roles!
   name: String!
@@ -727,7 +717,6 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
-  oAuth: oAuthMethod
   oAuthID: ID
   role: Roles
   name: String
@@ -827,16 +816,6 @@ input UserWhereInput {
 
   """All values greater than or equal the given value."""
   updatedAt_gte: DateTime
-  oAuth: oAuthMethod
-
-  """All values that are not equal to given value."""
-  oAuth_not: oAuthMethod
-
-  """All values that are contained in given list."""
-  oAuth_in: [oAuthMethod!]
-
-  """All values that are not contained in given list."""
-  oAuth_not_in: [oAuthMethod!]
   oAuthID: ID
 
   """All values that are not equal to given value."""

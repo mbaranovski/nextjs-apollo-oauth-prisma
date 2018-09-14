@@ -1,18 +1,13 @@
-enum oAuthMethod {
-  Github
-  Facebook
-}
 
 enum Roles {
   Admin
-  Client
+  Customer
 }
 
 type User {
   id: ID! @unique
   createdAt: DateTime!
   updatedAt: DateTime!
-  oAuth: oAuthMethod!
   oAuthID: ID! @unique
   role: Roles!
   name: String!
