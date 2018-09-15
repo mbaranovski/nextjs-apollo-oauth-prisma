@@ -24,7 +24,7 @@ async function getGithubToken(githubCode) {
 
 async function getGithubUser(githubToken) {
   const endpoint = `https://api.github.com/user?access_token=${githubToken}`;
-  const data = await fetch(endpoint).then(response => response.json());
+  const data = await (await fetch(endpoint)).json();
 
   if (data.error) {
     throw new Error(JSON.stringify(data.error));

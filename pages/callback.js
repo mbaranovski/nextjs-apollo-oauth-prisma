@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import redirect from "../lib/redirect";
 import { setCookies } from "../lib/utils";
 import Link from "next/link";
+import { handleGraphQLErrors } from "../lib/errorLink";
 
 const AUTHENTICATE = gql`
   mutation Authenticate($oAuthCode: String!, $oAuthMethod: oAuthMethod!) {
@@ -17,7 +18,7 @@ class CallbackAuth extends React.Component {
   static async getInitialProps({ req, res, apolloClient }) {
     const { code, method } = req.query;
     if (!process.browser && code) {
-   //   try {
+      try {
         const { data } = await apolloClient.mutate({
           mutation: AUTHENTICATE,
           variables: { oAuthCode: code, oAuthMethod: method }
@@ -27,10 +28,10 @@ class CallbackAuth extends React.Component {
           setCookies(data.authenticate.token, res);
           redirect({ res }, "/");
         }
-     // } catch (e) {
-        console.log("Callback.js: ", e);
-        return { };
-     // }
+      } catch (e) {
+        handleGraphQLErrors(e.graphQLErrors, res);
+        return { error: true };
+      }
     }
 
     return {};

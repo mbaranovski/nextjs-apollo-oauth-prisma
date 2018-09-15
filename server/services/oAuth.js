@@ -1,4 +1,5 @@
-const verifyFacebookPermissions = require("./facebook").verifyFacebookPermissions;
+const getFacebookUser = require("./facebook").getFacebookUser;
+const checkFacebookPermissions = require("./facebook").checkFacebookPermissions;
 const verifyAccessToken = require("./facebook").verifyAccessToken;
 const getFacebookToken = require("./facebook").getFacebookToken;
 const { getGithubUser } = require("./github");
@@ -14,9 +15,8 @@ const getUserFromOAuthMethod = async (oAuthMethod, oAuthCode, ctx) => {
   if (oAuthMethod === "Facebook") {
     const token = await getFacebookToken(oAuthCode, oAuthMethod);
     const {data: {user_id}} = await verifyAccessToken(token);
-    const permissions = await verifyFacebookPermissions(user_id, token, ctx);
-
-    console.log("MICHAL:permissions ", permissions);
+    await checkFacebookPermissions(user_id, token, ctx);
+    oAuthUser = await getFacebookUser(token);
   }
   if (!oAuthUser) throw Error("Error occured during oAuth");
   return oAuthUser;
