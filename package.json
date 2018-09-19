@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "node server/server.js",
     "start:prisma": "docker-compose up -d",
-    "datamodel": "prisma deploy"
+    "datamodel": "prisma deploy",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "apollo-cache-inmemory": "^1.2.10",
@@ -23,7 +24,6 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "graphql": "^0.13.2",
-    "graphql-import": "^0.6.0",
     "graphql-tag": "^2.9.2",
     "isomorphic-unfetch": "^2.0.0",
     "jsonwebtoken": "^8.3.0",
@@ -36,9 +36,25 @@
     "styled-jsx": "^3.0.2"
   },
   "devDependencies": {
+    "apollo-link-schema": "^1.1.1",
+    "babel-jest": "^23.6.0",
+    "graphql-import": "^0.6.0",
+    "graphql-tools": "^3.1.1",
     "jest": "^23.6.0",
+    "jest-transform-graphql": "^2.1.0",
     "node-forge": "^0.7.6",
     "nodemon": "^1.18.3",
-    "prettier": "^1.14.2"
+    "prettier": "^1.14.2",
+    "react-testing-library": "^5.1.0"
+  },
+  "jest": {
+    "transform": {
+      "\\.(gql|graphql)$": "jest-transform-graphql",
+      ".*": "babel-jest"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/.next/",
+      "<rootDir>/node_modules/"
+    ]
   }
 }

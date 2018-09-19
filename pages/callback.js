@@ -1,5 +1,4 @@
 import React from "react";
-import { withApollo } from "react-apollo";
 import gql from "graphql-tag";
 import redirect from "../lib/redirect";
 import { setCookies } from "../lib/utils";
@@ -57,4 +56,4 @@ class CallbackAuth extends React.Component {
   }
 }
 
-export default withApollo(CallbackAuth);
+export default CallbackAuth;

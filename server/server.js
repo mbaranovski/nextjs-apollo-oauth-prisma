@@ -8,7 +8,7 @@ const { importSchema } = require("graphql-import");
 const resolvers = require("./resolvers.js").default;
 const express = require("express");
 const next = require("next");
-const jwtCheck = require("../lib/utils").jwtCheck;
+const { jwtCheck } = require("../lib/utils");
 const generateCertificate = require("../generateCertificate");
 
 const dev = process.env.NODE_ENV !== "production";

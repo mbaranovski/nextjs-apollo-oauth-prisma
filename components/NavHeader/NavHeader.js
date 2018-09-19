@@ -1,8 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import cookie from "cookie";
 import redirect from "../../lib/redirect";
+import { withApollo } from "react-apollo";
 
-export class NavHeader extends React.Component {
+class NavHeader extends React.Component {
   signout = apolloClient => () => {
     document.cookie = cookie.serialize("user", "", { maxAge: -1 });
     apolloClient.cache.reset().then(() => redirect({}, "/signin"));
@@ -43,3 +45,9 @@ export class NavHeader extends React.Component {
     );
   }
 }
+
+NavHeader.propTypes = {
+  user: PropTypes.object.isRequired,
+}
+
+export default withApollo(NavHeader);
