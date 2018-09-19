@@ -15,6 +15,13 @@ const SignInBox = ({ type }) => {
       borderColor: "rgba(0,0,0,0.2)",
       link:
         "https://www.facebook.com/v3.1/dialog/oauth?client_id=234464140579336&redirect_uri=https://localhost:4000/callback?method=Facebook&response_type=code&scope=email"
+    },
+    google: {
+      icon: "https://unpkg.com/simple-icons@latest/icons/github.svg",
+      title: "Sign in with Google",
+      borderColor: "rgba(0,0,0,0.2)",
+      link:
+        "https://accounts.google.com/o/oauth2/v2/auth?client_id=221259517688-mjfaibms17942tcl4taiinaeg9ad0rhi.apps.googleusercontent.com&redirect_uri=https://localhost:4000/callback?method=Google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email"
     }
   }[type];
 

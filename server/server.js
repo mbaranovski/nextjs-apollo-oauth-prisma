@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const https = require("https");
+const http = require("http");
 const { Prisma } = require("prisma-binding");
 const { ApolloServer } = require("apollo-server-express");
 const { importSchema } = require("graphql-import");
